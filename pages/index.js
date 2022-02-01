@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import Property from "../components/Property";
+
 import { baseURL, fetchApi } from "../utils/fetchApi";
 
 const Banner = ({ imgUrl, purpose, title1, title2, desc1, desc2, linkName, buttonText }) => (
@@ -34,7 +36,7 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
 				buttonText={'Rent a House'}
 			/>
 			<div className="flex flex-col flex-wrap items-center justify-center">
-
+				{propertiesForRent.map((property) => <Property key={property.id} property={property} />)}
 			</div>
 			<Banner
 				imgUrl={'https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'}
@@ -46,6 +48,9 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
 				linkName={'/search?purpose=buy'}
 				buttonText={'Buy a House'}
 			/>
+			<div className="flex flex-col flex-wrap items-center justify-center">
+				{propertiesForSale.map((property) => <Property key={property.id} property={property} />)}
+			</div>
 		</>
 	)
 }
