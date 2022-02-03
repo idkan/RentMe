@@ -7,7 +7,7 @@ import { baseURL, fetchApi } from "../utils/fetchApi";
 
 const Banner = ({ imgUrl, purpose, title1, title2, desc1, desc2, linkName, buttonText }) => (
 	<div className="main-banner mb-8">
-		<div className="max-w-full my-4 mx-auto lg:flex">
+		<div className="max-w-full my-4 mx-auto">
 			<div className="rounded border-2 border-gray-200 flex flex-col md:flex-row">
 				<Image src={imgUrl} alt="RentMe Banner" width={500} height={300} />
 				<div className="p-4">
@@ -31,34 +31,32 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
 
 	return (
 		<>
-			<main className="max-w-screen-xl m-auto p-4 md:p-0">
-				<Banner
-					imgUrl={'https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'}
-					purpose={'Rent a House'}
-					title1={'Rental Homes for'}
-					title2={'Everyone'}
-					desc1={'Rent a house for your family, friends, or yourself. We have a wide variety of rental homes for you to choose from.'}
-					desc2={'We have a wide variety of rental homes for you to choose from.'}
-					linkName={'/search?purpose=rent'}
-					buttonText={'Rent a House'}
-				/>
-				<div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8">
-					{propertiesForRent.map((property) => <Property key={property.id} property={property} />)}
-				</div>
-				<Banner
-					imgUrl={'https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'}
-					purpose={'Buy a House'}
-					title1={'Buy a House'}
-					title2={'For Your Family'}
-					desc1={'Buy a house for your family, friends, or yourself. We have a wide variety of rental homes for you to choose from.'}
-					desc2={'We have a wide variety of rental homes for you to choose from.'}
-					linkName={'/search?purpose=buy'}
-					buttonText={'Buy a House'}
-				/>
-				<div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8">
-					{propertiesForSale.map((property) => <Property key={property.id} property={property} />)}
-				</div>
-			</main>
+			<Banner
+				imgUrl={'https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'}
+				purpose={'Rent a House'}
+				title1={'Rental Homes for'}
+				title2={'Everyone'}
+				desc1={'Rent a house for your family, friends, or yourself. We have a wide variety of rental homes for you to choose from.'}
+				desc2={'We have a wide variety of rental homes for you to choose from.'}
+				linkName={'/search?purpose=rent'}
+				buttonText={'Rent a House'}
+			/>
+			<div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8">
+				{propertiesForRent.map((property) => <Property key={property.id} property={property} />)}
+			</div>
+			<Banner
+				imgUrl={'https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'}
+				purpose={'Buy a House'}
+				title1={'Buy a House'}
+				title2={'For Your Family'}
+				desc1={'Buy a house for your family, friends, or yourself. We have a wide variety of rental homes for you to choose from.'}
+				desc2={'We have a wide variety of rental homes for you to choose from.'}
+				linkName={'/search?purpose=buy'}
+				buttonText={'Buy a House'}
+			/>
+			<div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8">
+				{propertiesForSale.map((property) => <Property key={property.id} property={property} />)}
+			</div>
 		</>
 	)
 }
