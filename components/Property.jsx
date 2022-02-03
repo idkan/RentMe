@@ -9,7 +9,7 @@ import DefaultImage from '../assets/images/default-house.jpg';
 
 const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID, category } }) => (
     <Link href={`/property/${externalID}`} passHref>
-        <div className="max-w-sm overflow-hidden rounded border-2 border-gray-200 hover:shadow-lg">
+        <div className="max-w-sm overflow-hidden rounded border-2 border-gray-200 hover:shadow-lg cursor-pointer">
             <Image className="w-full rounded" src={coverPhoto ? coverPhoto.url : DefaultImage} alt="House cover photo" width={500} height={300} />
             <div className="px-4 pt-4 flex items-center justify-between">
                 {isVerified && <GoVerified className="text-green-500" />}

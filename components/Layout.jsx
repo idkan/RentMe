@@ -1,5 +1,7 @@
 import Head from "next/head";
 
+import Navbar from "./Navbar";
+
 const Layout = ({ children }) => (
     <>
         <Head>
@@ -7,7 +9,7 @@ const Layout = ({ children }) => (
         </Head>
         <div className="max-w-screen-2xl m-auto p-4 md:p-8">
             <header>
-                Navbar
+                <Navbar />
             </header>
             <main>
                 {children}
