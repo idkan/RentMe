@@ -8,6 +8,8 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@headlessui/react": "^1.4.3",
+		"@heroicons/react": "^1.0.5",
 		"axios": "^0.25.0",
 		"framer-motion": "^6.2.3",
 		"millify": "^4.0.0",
