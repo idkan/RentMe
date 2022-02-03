@@ -13,6 +13,8 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
+// TODO: Improve Navbar styles
+
 const Navbar = () => (
     <Disclosure as="nav" className="bg-gray-800">
         {({ open }) => (
