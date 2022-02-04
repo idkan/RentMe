@@ -22,7 +22,7 @@ const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, 
                 {area && <div className="flex items-center"> <BsGridFill className="text-gray-500 mr-2" /> {millify(area)} sqft </div>}
             </div>
             <div className="px-4 pt-4">
-                <p className="font-bold lowercase first-letter:uppercase text-xl mb-2">{title.length > 25 ? `${title.substring(0, 25)}...` : title}</p>
+                <p className="font-bold lowercase first-letter:uppercase overflow-hidden whitespace-nowrap text-ellipsis text-xl mb-2">{title}</p>
             </div>
             <div className="px-4 pt-4 pb-2">
                 {category.map((cat, index) => (
