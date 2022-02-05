@@ -25,7 +25,7 @@ const Navbar = () => (
                         <div className="flex-1 flex items-center justify-center sm:items-center sm:justify-start">
                             <div className="flex-shrink-0 flex items-center">
                                 <HiOutlineHome color="black" className="block lg:hidden h-8 w-auto" />
-                                <div className="flex-shrink-0 flex items-center cursor-pointer">
+                                <div className="flex-shrink-0 flex items-center">
                                     <FcHome color="white" className="hidden lg:block h-8 w-auto" />
                                     <p className="hidden lg:block text-black text-2xl font-medium title-font ml-1">RentMe</p>
                                 </div>
