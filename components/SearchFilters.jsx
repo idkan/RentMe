@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
-import { MdCancel } from "react-icons/md";
-import Image from "next/image";
 
 import { filterData, getFilterValues } from "../utils/filterData";
 
@@ -21,14 +19,34 @@ const SearchFilters = () => {
             }
         });
 
-        router.push({ pathname: path, query });
+        router.push({ pathname: path, query: query });
+    }
+
+    const clearFilters = () => {
+
+        const path = router.pathname;
+        const { query } = router;
+
+        Object.keys(query).forEach((key) => {
+            delete query[key];
+        });
+
+        router.push({ pathname: path, query: query });
+
+        document.querySelectorAll("select").forEach((select) => {
+            select.value = "";
+        })
+
     }
 
     return (
         <div className="search-filters">
             <div className="flex items-center justify-between mt-4">
                 <p className="font-medium">Filters</p>
-                <button className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
+                <button
+                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
+                    onClick={clearFilters}
+                >
                     Reset Filter
                 </button>
             </div>
