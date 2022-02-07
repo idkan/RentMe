@@ -17,9 +17,9 @@ const Banner = ({ imgUrl, purpose, title1, title2, desc1, desc2, linkName, butto
 						<p className="text-gray-700 text-lg px-1">{desc1}<br />{desc2}</p>
 					</div>
 					<div className="flex items-center">
-					<button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-						<Link href={linkName}>{buttonText}</Link>
-					</button>
+						<button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+							<Link href={linkName}>{buttonText}</Link>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -38,20 +38,20 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
 				title2={'Everyone'}
 				desc1={'Rent a house for your family, friends, or yourself. We have a wide variety of rental homes for you to choose from.'}
 				desc2={'We have a wide variety of rental homes for you to choose from.'}
-				linkName={'/search?purpose=rent'}
+				linkName={'/search?purpose=for-rent'}
 				buttonText={'Rent a House'}
 			/>
 			<div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8">
 				{propertiesForRent.map((property) => <Property key={property.id} property={property} />)}
 			</div>
 			<Banner
-				imgUrl={'https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'}
+				imgUrl={'https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008'}
 				purpose={'Buy a House'}
 				title1={'Buy a House'}
 				title2={'For Your Family'}
 				desc1={'Buy a house for your family, friends, or yourself. We have a wide variety of rental homes for you to choose from.'}
 				desc2={'We have a wide variety of rental homes for you to choose from.'}
-				linkName={'/search?purpose=buy'}
+				linkName={'/search?purpose=for-sale'}
 				buttonText={'Buy a House'}
 			/>
 			<div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8">

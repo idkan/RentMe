@@ -31,7 +31,7 @@ const Search = ({ properties }) => {
             </div>
             <div className="w-full mt-8">
                 <p className="text-3xl font-bold mb-2">
-                    Properties {router.query.purpose}
+                    Properties <span className="capitalize">{router.query.purpose.replace('-', ' ')}</span> Search Result
                 </p>
                 <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8">
                     {properties.map((property) => <Property property={property} key={property.id} />)}
