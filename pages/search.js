@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { BsFilter } from "react-icons/bs";
+import { BsFilter, BsSearch } from "react-icons/bs";
 
 import { baseURL, fetchApi } from "../utils/fetchApi";
 
@@ -16,6 +16,13 @@ const Search = ({ properties }) => {
     return (
         <>
             <div className="w-full shadow p-5 rounded-lg bg-white">
+                {/* TODO: Add search location bar functionality */ }
+                <div class="relative mb-4">
+                    <div class="absolute flex items-center ml-2 h-full">
+                        <BsSearch />
+                    </div>
+                    <input type="text" placeholder="Search by location..." class="px-8 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" />
+                </div>
                 <div className="flex justify-between items-center">
                     <button className="px-8 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md flex justify-center items-center" onClick={() => setSearchFilters((prevFilters) => !prevFilters)}>
                         Filters
