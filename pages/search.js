@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { BsFilter, BsSearch } from "react-icons/bs";
+import { BsFilter } from "react-icons/bs";
 
 import { baseURL, fetchApi } from "../utils/fetchApi";
 
@@ -16,13 +16,6 @@ const Search = ({ properties }) => {
     return (
         <>
             <div className="w-full shadow p-5 rounded-lg bg-white">
-                {/* TODO: Add search location bar functionality */ }
-                <div class="relative mb-4">
-                    <div class="absolute flex items-center ml-2 h-full">
-                        <BsSearch />
-                    </div>
-                    <input type="text" placeholder="Search by location..." class="px-8 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm" />
-                </div>
                 <div className="flex justify-between items-center">
                     <button className="px-8 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md flex justify-center items-center" onClick={() => setSearchFilters((prevFilters) => !prevFilters)}>
                         Filters
@@ -38,7 +31,7 @@ const Search = ({ properties }) => {
             </div>
             <div className="w-full mt-8">
                 <p className="text-3xl font-bold mb-2">
-                    Properties <span className="capitalize">{router.query.purpose.replace('-', ' ')}</span> Search Result
+                    Properties <span className="capitalize">{router?.query?.purpose?.replace('-', ' ')}</span> Search Result
                 </p>
                 <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8">
                     {properties.map((property) => <Property property={property} key={property.id} />)}

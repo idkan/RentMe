@@ -1,7 +1,5 @@
 import '../styles/globals.css';
-import Router from 'next/router';
 import Head from 'next/head';
-import NProgress from 'nprogress';
 
 import Layout from '../components/Layout.jsx';
 

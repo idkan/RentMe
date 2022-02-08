@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { BsSearch } from "react-icons/bs";
 
 import { filterData, getFilterValues } from "../utils/filterData";
 
 const SearchFilters = () => {
-    const [filters, setFilters] = useState(filterData);
+    const [filters] = useState(filterData);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [locationData, setLocationData] = useState();
+    const [loading, setLoading] = useState(false);
+
     const router = useRouter();
 
     const searchProperties = (filterValues) => {
@@ -50,22 +55,20 @@ const SearchFilters = () => {
                     Reset Filter
                 </button>
             </div>
-            <div>
-                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
-                    {filters.map((filter) => (
-                        <select
-                            key={filter.queryName}
-                            placeholder={filter.placeholder}
-                            className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
-                            onChange={(e) => searchProperties({ [filter.queryName]: e.target.value })}
-                        >
-                            <option value="" hidden>{filter.placeholder}</option>
-                            {filter?.items?.map((item) => (
-                                <option key={item.value} value={item.value}>{item.name}</option>
-                            ))}
-                        </select>
-                    ))}
-                </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
+                {filters.map((filter) => (
+                    <select
+                        key={filter.queryName}
+                        placeholder={filter.placeholder}
+                        className="px-4 py-3 w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-sm"
+                        onChange={(e) => searchProperties({ [filter.queryName]: e.target.value })}
+                    >
+                        <option value="" hidden>{filter.placeholder}</option>
+                        {filter?.items?.map((item) => (
+                            <option key={item.value} value={item.value}>{item.name}</option>
+                        ))}
+                    </select>
+                ))}
             </div>
         </div>
     );

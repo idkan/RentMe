@@ -1,5 +1,5 @@
 # RentMe 🏡💲⏳
-Build and Deploy an Realstate (Rent and Sale properties) React App using [Bayout API](https://rapidapi.com/apidojo/api/bayut/). Auto complete search, propierties list and full information page.
+Build and Deploy an Real state (Rent and Sale properties) React App using [Bayout API](https://rapidapi.com/apidojo/api/bayut/). Filter search, properties list and full information page.
 
 <!-- IN THE APP -->
 ## App Contains
