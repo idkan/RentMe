@@ -41,9 +41,10 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
 				linkName={'/search?purpose=for-rent'}
 				buttonText={'Rent a House'}
 			/>
-			<div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8">
-				{propertiesForRent.map((property) => <Property key={property.id} property={property} />)}
-			</div>
+			{propertiesForRent.length !== 0
+				? <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8"> {propertiesForRent?.map((property) => <Property key={property.id} property={property} />)}</div>
+				: <p className="text-3xl font-bold text-center mb-8">Under Maintenance 🚧👷🏻‍♂️🛠 (Exceeded the MONTHLY API Requests)</p>
+			}
 			<Banner
 				imgUrl={'https://bayut-production.s3.eu-central-1.amazonaws.com/image/110993385/6a070e8e1bae4f7d8c1429bc303d2008'}
 				purpose={'Buy a House'}
@@ -54,21 +55,25 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
 				linkName={'/search?purpose=for-sale'}
 				buttonText={'Buy a House'}
 			/>
-			<div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8">
-				{propertiesForSale.map((property) => <Property key={property.id} property={property} />)}
-			</div>
+			{propertiesForSale.length !== 0
+				? <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-8"> {propertiesForSale?.map((property) => <Property key={property.id} property={property} />)}</div>
+				: <p className="text-3xl font-bold text-center">Under Maintenance 🚧👷🏻‍♂️🛠 (Exceeded the MONTHLY API Requests)</p>
+			}
 		</>
 	)
 }
 
 export async function getStaticProps() {
-	const propertyForSale = await fetchApi(`${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-sale&page=1&hitsPerPage=8`);
-	const propertyForRent = await fetchApi(`${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-rent&page=1&hitsPerPage=8`);
+	const propertyForSale = [];
+	const propertyForRent = [];
+
+	fetchApi(`${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-sale&page=1&hitsPerPage=8`).then(data => { propertyForSale = data.hits; });
+	fetchApi(`${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-rent&page=1&hitsPerPage=8`).then(data => { propertyForRent = data.hits; });
 
 	return {
 		props: {
-			propertiesForSale: propertyForSale?.hits,
-			propertiesForRent: propertyForRent?.hits,
+			propertiesForSale: propertyForSale,
+			propertiesForRent: propertyForRent,
 		}
 	}
 }
