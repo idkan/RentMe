@@ -8,7 +8,7 @@ import millify from 'millify';
 import { baseURL, fetchApi } from '../../utils/fetchApi';
 
 
-const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title, baths, area, agency, isVerified, description, type, purpose, furnishingStatus, amenities, photos, geography } }) => (
+const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title, baths, area, agency, isVerified, description, type, purpose, furnishingStatus, amenities, photos } }) => (
 
     <div className="property-details">
         <div className="property-details-header">
@@ -54,7 +54,6 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
                         ))}
                     </div>
                 )}
-
             </div>
         </div>
     </div>

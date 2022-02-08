@@ -8,7 +8,7 @@ const Layout = ({ children }) => (
         <Head>
             <title>Rent Me</title>
         </Head>
-        <div>
+        <div className="flex flex-col h-screen justify-between">
             <header>
                 <Navbar />
             </header>
