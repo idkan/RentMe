@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { BsSearch } from "react-icons/bs";
 
 import { filterData, getFilterValues } from "../utils/filterData";
 
 const SearchFilters = () => {
     const [filters] = useState(filterData);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [locationData, setLocationData] = useState();
-    const [loading, setLoading] = useState(false);
 
     const router = useRouter();
 
