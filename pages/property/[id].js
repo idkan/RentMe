@@ -54,6 +54,9 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
                         ))}
                     </div>
                 )}
+                {/* 
+                    // TODO: Add more details and map view 
+                */}
             </div>
         </div>
     </div>

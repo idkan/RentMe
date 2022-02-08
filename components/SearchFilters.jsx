@@ -66,6 +66,9 @@ const SearchFilters = () => {
                     </select>
                 ))}
             </div>
+            {/* 
+                // TODO: Add Search by location feature
+            */}
         </div>
     );
 };
