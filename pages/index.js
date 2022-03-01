@@ -64,16 +64,13 @@ export default function Home({ propertiesForSale, propertiesForRent }) {
 }
 
 export async function getStaticProps() {
-	const propertyForSale = [];
-	const propertyForRent = [];
-
-	fetchApi(`${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-sale&page=1&hitsPerPage=8`).then(data => { propertyForSale = data.hits; });
-	fetchApi(`${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-rent&page=1&hitsPerPage=8`).then(data => { propertyForRent = data.hits; });
+	const propertyForSale = await fetchApi(`${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-sale&page=1&hitsPerPage=8`);
+	const propertyForRent = await fetchApi(`${baseURL}/properties/list?locationExternalIDs=5002&purpose=for-rent&page=1&hitsPerPage=8`);
 
 	return {
 		props: {
-			propertiesForSale: propertyForSale,
-			propertiesForRent: propertyForRent,
+			propertiesForSale: propertyForSale?.hits || [],
+			propertiesForRent: propertyForRent?.hits || [],
 		}
 	}
 }
