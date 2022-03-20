@@ -24,13 +24,13 @@ const Footer = () => (
                     © Copyright 2022 RentMe. All Rights Reserved.
                 </div>
                 <div className="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
-                    <a href="https://twitter.com/idkantv" target="_blank"  className="w-6 mx-1">
+                    <a href="https://twitter.com/idkantv" target="_blank" rel="noreferrer" className="w-6 mx-1">
                         <FaTwitter />
                     </a>
-                    <a href="https://www.linkedin.com/in/abraham-serena/" target="_blank" className="w-6 mx-1">
+                    <a href="https://www.linkedin.com/in/abraham-serena/" target="_blank" rel="noreferrer" className="w-6 mx-1">
                         <FaLinkedin />
                     </a>
-                    <a href="https://www.instagram.com/abraham_salk/" target="_blank" className="w-6 mx-1">
+                    <a href="https://www.instagram.com/abraham_salk/" target="_blank" rel="noreferrer" className="w-6 mx-1">
                         <FaInstagram />
                     </a>
                 </div>
